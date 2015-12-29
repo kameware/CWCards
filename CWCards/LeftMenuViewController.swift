@@ -1,23 +1,23 @@
 //
-//  ViewController.swift
+//  LeftMenuViewController.swift
 //  CWCards
 //
-//  Created by mineharu on 2015/11/04.
+//  Created by nakamura on 2015/12/26.
 //  Copyright © 2015年 Mineharu. All rights reserved.
 //
 
 import UIKit
 import SWRevealViewController
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
+class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
     @IBOutlet weak var typeTable: UITableView!
     
     
     @IBOutlet weak var leftMenuButton: UIBarButtonItem!
     @IBOutlet weak var rightButtonMenu: UIBarButtonItem!
     
-    let types: [String] = ["ST01", "ST02", "BT01", "ST03", "BT02"]
+    let types: [String] = ["BT01-", "BT02-", "ST01-", "ST02-", "ST03-", "PR-U", "PR-P", "PR-T"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,26 +26,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         typeTable.dataSource = self;
         typeTable.delegate = self;
         
-        let revealController = self.revealViewController()
-        
-        revealController.tapGestureRecognizer()
-        
-        if self.revealViewController() != nil {
-            leftMenuButton.target = self.revealViewController()
-            leftMenuButton.action = "revealToggle:"
-            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-            rightButtonMenu.target = self.revealViewController()
-            rightButtonMenu.action = "rightRevealToggle:"
-            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    
     // MARK: UITableView
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return types.count
@@ -62,17 +50,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         let storyboard:UIStoryboard = UIStoryboard.init(name: "CardListViewController", bundle: NSBundle.mainBundle())
         let cardListViewcontroller:CardListViewController = storyboard.instantiateInitialViewController()! as! CardListViewController
-        cardListViewcontroller.typeName = types[indexPath.row]
-        self.navigationController?.pushViewController(cardListViewcontroller, animated: true)
+        
+        let ud = NSUserDefaults.standardUserDefaults()
+        ud.setObject(types[indexPath.row], forKey: DeviceConst().UD_TYPENAME)
+        
+        let navigationController = UINavigationController(rootViewController: cardListViewcontroller)
+        
+        let revealController = self.revealViewController()
+        revealController.pushFrontViewController(navigationController, animated: true)
     }
-    
-    func slideNavigationControllerShouldDisplayLeftMenu() -> Bool {
-        return true
-    }
-    
-    // RightMenu
-    // func slideNavigationControllerShouldDisplayRightMenu() -> Bool {
-    //    return true
-    // }
 }
-

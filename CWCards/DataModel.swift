@@ -10,7 +10,12 @@ import Foundation
 import RealmSwift
 
 class Card: Object {
+//    dynamic var c_rec = ""
+//    dynamic var number = ""
     dynamic var card_number = ""
+//    :String {
+//        return String(format: "%@%03ld",c_rec, number)
+//    }
     dynamic var card_name = ""
     dynamic var color_restraint_1 = ""
     dynamic var color_restraint_2 = ""

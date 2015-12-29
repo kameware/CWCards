@@ -14,9 +14,13 @@
 		890D2D0A1BE915D60060B916 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 890D2D081BE915D60060B916 /* LaunchScreen.storyboard */; };
 		890D2D141BE91B250060B916 /* CardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890D2D131BE91B250060B916 /* CardListViewController.swift */; };
 		890D2D161BE91B3E0060B916 /* CardListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 890D2D151BE91B3E0060B916 /* CardListViewController.storyboard */; };
+		892016831C28488F005DC1CF /* RightMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892016821C28488F005DC1CF /* RightMenuViewController.swift */; };
+		895C5F791C31924D008CE41D /* CustomCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895C5F781C31924D008CE41D /* CustomCollectionViewFlowLayout.swift */; };
+		8960DCF51C317A6B000FBDA9 /* DeviceConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8960DCF41C317A6B000FBDA9 /* DeviceConst.swift */; };
 		89B397671BF8EACF0087B7B9 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B397661BF8EACF0087B7B9 /* DataModel.swift */; };
+		89EBBB891C2EC49D008B414B /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EBBB881C2EC49D008B414B /* LeftMenuViewController.swift */; };
 		89FCD8AF1BF396EA009DFDCE /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FCD8AE1BF396EA009DFDCE /* CardCollectionViewCell.swift */; };
-		D842384F5F75EA68F3A85298 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D64327992132FF83551C46EA /* Pods.framework */; };
+		B3B2168FD9793A2BAF17D24E /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C4D30CB7AA861FA18824615 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,11 +34,15 @@
 		890D2D0B1BE915D60060B916 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		890D2D131BE91B250060B916 /* CardListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardListViewController.swift; sourceTree = "<group>"; };
 		890D2D151BE91B3E0060B916 /* CardListViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CardListViewController.storyboard; sourceTree = "<group>"; };
+		892016821C28488F005DC1CF /* RightMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightMenuViewController.swift; sourceTree = "<group>"; };
+		895C5F781C31924D008CE41D /* CustomCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		8960DCF41C317A6B000FBDA9 /* DeviceConst.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceConst.swift; sourceTree = "<group>"; };
+		899901331C28641600965319 /* CWCards-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CWCards-Bridging-Header.h"; sourceTree = "<group>"; };
 		89B397661BF8EACF0087B7B9 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
-		89FCD8AA1BF396CB009DFDCE /* CWCards-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CWCards-Bridging-Header.h"; sourceTree = "<group>"; };
+		89EBBB881C2EC49D008B414B /* LeftMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
 		89FCD8AE1BF396EA009DFDCE /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
 		9BD0CEC31B28D08447AC9299 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		D64327992132FF83551C46EA /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C4D30CB7AA861FA18824615 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,7 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D842384F5F75EA68F3A85298 /* Pods.framework in Frameworks */,
+				B3B2168FD9793A2BAF17D24E /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,7 +80,10 @@
 			children = (
 				890D2CFF1BE915D60060B916 /* AppDelegate.swift */,
 				890D2D011BE915D60060B916 /* ViewController.swift */,
+				89EBBB881C2EC49D008B414B /* LeftMenuViewController.swift */,
+				892016821C28488F005DC1CF /* RightMenuViewController.swift */,
 				890D2D131BE91B250060B916 /* CardListViewController.swift */,
+				895C5F781C31924D008CE41D /* CustomCollectionViewFlowLayout.swift */,
 				89FCD8AE1BF396EA009DFDCE /* CardCollectionViewCell.swift */,
 				89B397661BF8EACF0087B7B9 /* DataModel.swift */,
 				890D2D031BE915D60060B916 /* Main.storyboard */,
@@ -80,7 +91,8 @@
 				890D2D061BE915D60060B916 /* Assets.xcassets */,
 				890D2D081BE915D60060B916 /* LaunchScreen.storyboard */,
 				890D2D0B1BE915D60060B916 /* Info.plist */,
-				89FCD8AA1BF396CB009DFDCE /* CWCards-Bridging-Header.h */,
+				899901331C28641600965319 /* CWCards-Bridging-Header.h */,
+				8960DCF41C317A6B000FBDA9 /* DeviceConst.swift */,
 			);
 			path = CWCards;
 			sourceTree = "<group>";
@@ -88,7 +100,7 @@
 		AD98DEEDEE4AB4BD401E071F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D64327992132FF83551C46EA /* Pods.framework */,
+				9C4D30CB7AA861FA18824615 /* Pods.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -228,7 +240,11 @@
 				89B397671BF8EACF0087B7B9 /* DataModel.swift in Sources */,
 				89FCD8AF1BF396EA009DFDCE /* CardCollectionViewCell.swift in Sources */,
 				890D2D141BE91B250060B916 /* CardListViewController.swift in Sources */,
+				8960DCF51C317A6B000FBDA9 /* DeviceConst.swift in Sources */,
+				895C5F791C31924D008CE41D /* CustomCollectionViewFlowLayout.swift in Sources */,
 				890D2D021BE915D60060B916 /* ViewController.swift in Sources */,
+				892016831C28488F005DC1CF /* RightMenuViewController.swift in Sources */,
+				89EBBB891C2EC49D008B414B /* LeftMenuViewController.swift in Sources */,
 				890D2D001BE915D60060B916 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -345,8 +361,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = CWCards/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.mine.CWCards;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -362,8 +379,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = CWCards/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.mine.CWCards;
 				PRODUCT_NAME = "$(TARGET_NAME)";
