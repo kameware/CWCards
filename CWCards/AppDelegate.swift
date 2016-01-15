@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         let ud = NSUserDefaults.standardUserDefaults()
-        ud.setObject("BT02", forKey: DeviceConst().UD_TYPENAME)
+        ud.setObject("BT02-", forKey: DeviceConst().UD_TYPENAME)
         
         return true
     }

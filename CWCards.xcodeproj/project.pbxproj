@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		890D2D001BE915D60060B916 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890D2CFF1BE915D60060B916 /* AppDelegate.swift */; };
-		890D2D021BE915D60060B916 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890D2D011BE915D60060B916 /* ViewController.swift */; };
+		890D2D021BE915D60060B916 /* aViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890D2D011BE915D60060B916 /* aViewController.swift */; };
 		890D2D051BE915D60060B916 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 890D2D031BE915D60060B916 /* Main.storyboard */; };
 		890D2D071BE915D60060B916 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 890D2D061BE915D60060B916 /* Assets.xcassets */; };
 		890D2D0A1BE915D60060B916 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 890D2D081BE915D60060B916 /* LaunchScreen.storyboard */; };
@@ -18,7 +18,7 @@
 		895C5F791C31924D008CE41D /* CustomCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895C5F781C31924D008CE41D /* CustomCollectionViewFlowLayout.swift */; };
 		8960DCF51C317A6B000FBDA9 /* DeviceConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8960DCF41C317A6B000FBDA9 /* DeviceConst.swift */; };
 		89B397671BF8EACF0087B7B9 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B397661BF8EACF0087B7B9 /* DataModel.swift */; };
-		89EBBB891C2EC49D008B414B /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EBBB881C2EC49D008B414B /* LeftMenuViewController.swift */; };
+		89EBBB891C2EC49D008B414B /* BsMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EBBB881C2EC49D008B414B /* BsMenuViewController.swift */; };
 		89FCD8AF1BF396EA009DFDCE /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FCD8AE1BF396EA009DFDCE /* CardCollectionViewCell.swift */; };
 		B3B2168FD9793A2BAF17D24E /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C4D30CB7AA861FA18824615 /* Pods.framework */; };
 /* End PBXBuildFile section */
@@ -27,7 +27,7 @@
 		2C3EEFA4DA9795A2EA5275C4 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		890D2CFC1BE915D60060B916 /* CWCards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CWCards.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		890D2CFF1BE915D60060B916 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		890D2D011BE915D60060B916 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		890D2D011BE915D60060B916 /* aViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aViewController.swift; sourceTree = "<group>"; };
 		890D2D041BE915D60060B916 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		890D2D061BE915D60060B916 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		890D2D091BE915D60060B916 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -39,7 +39,7 @@
 		8960DCF41C317A6B000FBDA9 /* DeviceConst.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceConst.swift; sourceTree = "<group>"; };
 		899901331C28641600965319 /* CWCards-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CWCards-Bridging-Header.h"; sourceTree = "<group>"; };
 		89B397661BF8EACF0087B7B9 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
-		89EBBB881C2EC49D008B414B /* LeftMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
+		89EBBB881C2EC49D008B414B /* BsMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BsMenuViewController.swift; sourceTree = "<group>"; };
 		89FCD8AE1BF396EA009DFDCE /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
 		9BD0CEC31B28D08447AC9299 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		9C4D30CB7AA861FA18824615 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,8 +79,8 @@
 			isa = PBXGroup;
 			children = (
 				890D2CFF1BE915D60060B916 /* AppDelegate.swift */,
-				890D2D011BE915D60060B916 /* ViewController.swift */,
-				89EBBB881C2EC49D008B414B /* LeftMenuViewController.swift */,
+				890D2D011BE915D60060B916 /* aViewController.swift */,
+				89EBBB881C2EC49D008B414B /* BsMenuViewController.swift */,
 				892016821C28488F005DC1CF /* RightMenuViewController.swift */,
 				890D2D131BE91B250060B916 /* CardListViewController.swift */,
 				895C5F781C31924D008CE41D /* CustomCollectionViewFlowLayout.swift */,
@@ -242,9 +242,9 @@
 				890D2D141BE91B250060B916 /* CardListViewController.swift in Sources */,
 				8960DCF51C317A6B000FBDA9 /* DeviceConst.swift in Sources */,
 				895C5F791C31924D008CE41D /* CustomCollectionViewFlowLayout.swift in Sources */,
-				890D2D021BE915D60060B916 /* ViewController.swift in Sources */,
+				890D2D021BE915D60060B916 /* aViewController.swift in Sources */,
 				892016831C28488F005DC1CF /* RightMenuViewController.swift in Sources */,
-				89EBBB891C2EC49D008B414B /* LeftMenuViewController.swift in Sources */,
+				89EBBB891C2EC49D008B414B /* BsMenuViewController.swift in Sources */,
 				890D2D001BE915D60060B916 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

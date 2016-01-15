@@ -101,7 +101,7 @@ class RightMenuViewController: UIViewController, UITableViewDataSource, UITableV
                                     realm.create(Card.self, value: cardInfo, update: true)
                                 }
                                 let cardData = realm.objects(Card).filter(predicate).first
-                                var cardColor:UIColor = UIColor.blackColor();
+                                var cardColor:UIColor = UIColor.whiteColor();
                                 switch (cardData?.color)! {
                                 case "青":
                                     cardColor = UIColor.blueColor()
@@ -110,7 +110,7 @@ class RightMenuViewController: UIViewController, UITableViewDataSource, UITableV
                                     cardColor = UIColor.greenColor()
                                     break
                                 case "黄":
-                                    cardColor = UIColor.yellowColor()
+                                    cardColor = UIColor.orangeColor()
                                     break
                                 case "黒":
                                     cardColor = UIColor.blackColor()
@@ -130,7 +130,7 @@ class RightMenuViewController: UIViewController, UITableViewDataSource, UITableV
                     }
             }
         } else {
-            var cardColor:UIColor = UIColor.blackColor();
+            var cardColor:UIColor = UIColor.whiteColor();
             switch (cardData?.color)! {
             case "青":
                 cardColor = UIColor.blueColor()
@@ -139,7 +139,7 @@ class RightMenuViewController: UIViewController, UITableViewDataSource, UITableV
                 cardColor = UIColor.greenColor()
                 break
             case "黄":
-                cardColor = UIColor.yellowColor()
+                cardColor = UIColor.orangeColor()
                 break
             case "黒":
                 cardColor = UIColor.blackColor()

@@ -5,8 +5,52 @@
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
+        <!--Bs Menu View Controller-->
+        <scene sceneID="AUP-D4-Asb">
+            <objects>
+                <viewController id="ltL-Re-Oal" customClass="BsMenuViewController" customModule="CWCards" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="z5u-Vj-VuM"/>
+                        <viewControllerLayoutGuide type="bottom" id="9py-eg-eAF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ELv-2Z-q1T">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iy5-uL-TKh">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="vNW-4D-HDV">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vNW-4D-HDV" id="tGJ-ZK-sHY">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="iy5-uL-TKh" firstAttribute="leading" secondItem="ELv-2Z-q1T" secondAttribute="leading" id="EkS-47-AF2"/>
+                            <constraint firstAttribute="trailing" secondItem="iy5-uL-TKh" secondAttribute="trailing" id="M89-nv-ryC"/>
+                            <constraint firstItem="iy5-uL-TKh" firstAttribute="top" secondItem="z5u-Vj-VuM" secondAttribute="bottom" id="MHu-eP-Xzu"/>
+                            <constraint firstItem="9py-eg-eAF" firstAttribute="top" secondItem="iy5-uL-TKh" secondAttribute="bottom" id="jHO-XB-zp9"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="typeTable" destination="iy5-uL-TKh" id="hDe-aN-iYh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UXl-Vx-EGK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1179" y="486"/>
+        </scene>
         <!--Title-->
         <scene sceneID="RRs-4N-rnX">
             <objects>
@@ -330,7 +374,17 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Title" id="OzE-Iy-AQW">
                         <barButtonItem key="leftBarButtonItem" title="三" id="1SE-M8-QYh"/>
-                        <barButtonItem key="rightBarButtonItem" title="三" id="IIc-uf-EtN"/>
+                        <rightBarButtonItems>
+                            <barButtonItem title="三" id="IIc-uf-EtN"/>
+                            <barButtonItem title="B" id="Pjr-aZ-c9y">
+                                <connections>
+                                    <action selector="bsChangeBtn:" destination="pzN-Ev-4oX" id="gCl-Fl-I8V"/>
+                                    <segue destination="ltL-Re-Oal" kind="popoverPresentation" popoverAnchorBarButtonItem="Pjr-aZ-c9y" id="46k-wT-SGd">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <nil key="simulatedBottomBarMetrics"/>

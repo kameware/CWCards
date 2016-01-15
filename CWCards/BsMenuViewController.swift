@@ -9,7 +9,7 @@
 import UIKit
 import SWRevealViewController
 
-class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class BsMenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var typeTable: UITableView!
     
@@ -54,9 +54,10 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
         let ud = NSUserDefaults.standardUserDefaults()
         ud.setObject(types[indexPath.row], forKey: DeviceConst().UD_TYPENAME)
         
-        let navigationController = UINavigationController(rootViewController: cardListViewcontroller)
+//        let navigationController = UINavigationControlΩler(rootViewController: cardListViewcontroller)
         
-        let revealController = self.revealViewController()
-        revealController.pushFrontViewController(navigationController, animated: true)
+        self.dismissViewControllerAnimated(true, completion: nil)
+//        let revealController = self.revealViewController()
+//        revealController.pushFrontViewController(navigationController, animated: true)
     }
 }

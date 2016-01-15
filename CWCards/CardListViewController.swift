@@ -24,6 +24,10 @@ class CardListViewController: UIViewController, UICollectionViewDelegate, UIColl
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+    }
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
         let ud = NSUserDefaults.standardUserDefaults()
         typeName = ud.objectForKey(DeviceConst().UD_TYPENAME) as! String
         
@@ -45,9 +49,6 @@ class CardListViewController: UIViewController, UICollectionViewDelegate, UIColl
         }
         
         self.navigationItem.title = typeName
-    }
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
         cardTableView.reloadData()
     }
     
@@ -95,6 +96,12 @@ class CardListViewController: UIViewController, UICollectionViewDelegate, UIColl
         let predicate = NSPredicate(format: "card_number = %@", no)
         let cardData = realm.objects(Card).filter(predicate).first
         
+        let prFlg = typeName.hasPrefix("PR")
+        var imgUrlBase = "https://www.gundam-cw.com/img/card/%@%03ld.png"
+        if (prFlg) {
+            imgUrlBase = "https://www.gundam-cw.com/img/card/pr/%@%03ld.png"
+        }
+        
         if ((cardData) == nil) {
             // なければWEBから取得
             
@@ -103,7 +110,7 @@ class CardListViewController: UIViewController, UICollectionViewDelegate, UIColl
             
             let parameters = [
                 "number": NSString(format: "%@%03ld", typeName, indexPath.row + 1),
-                "card_type": typeName.hasPrefix("PR") ? "3" : "1"
+                "card_type": prFlg ? "3" : "1"
             ]
             let headers = [
                 "Content-Type": "application/x-www-form-urlencoded",
@@ -126,7 +133,7 @@ class CardListViewController: UIViewController, UICollectionViewDelegate, UIColl
                                     realm.create(Card.self, value: cardInfo, update: true)
                                 }
                                 let cardData = realm.objects(Card).filter(predicate).first
-                                var cardColor:UIColor = UIColor.blackColor();
+                                var cardColor:UIColor = UIColor.whiteColor();
                                 switch (cardData?.color)! {
                                 case "青":
                                     cardColor = UIColor.blueColor()
@@ -135,10 +142,13 @@ class CardListViewController: UIViewController, UICollectionViewDelegate, UIColl
                                     cardColor = UIColor.greenColor()
                                     break
                                 case "黄":
-                                    cardColor = UIColor.yellowColor()
+                                    cardColor = UIColor.orangeColor()
                                     break
                                 case "黒":
                                     cardColor = UIColor.blackColor()
+                                    break
+                                case "赤":
+                                    cardColor = UIColor.redColor()
                                     break
                                 default:
                                     break
@@ -159,7 +169,7 @@ class CardListViewController: UIViewController, UICollectionViewDelegate, UIColl
                                 cell.rarityLabel.text = NSString(format: "レアリティ:%@", (cardData?.rarity)!) as String
                                 cell.illustratorLabel.text = NSString(format: "イラストレーター:%@", (cardData?.illustrator)!) as String
                                 cell.recordingLabel.text = NSString(format: "収録:%@", (cardData?.recording)!) as String
-                                cell.cardImageView.sd_setImageWithURL(NSURL(string: NSString(format: "https://www.gundam-cw.com/img/card/%@%03ld.png", self.typeName, indexPath.row + 1) as String))
+                                cell.cardImageView.sd_setImageWithURL(NSURL(string: NSString(format: imgUrlBase, self.typeName, indexPath.row + 1) as String))
                             }
                         }
                     case .Failure(let error):
@@ -167,7 +177,7 @@ class CardListViewController: UIViewController, UICollectionViewDelegate, UIColl
                     }
             }
         } else {
-            var cardColor:UIColor = UIColor.blackColor();
+            var cardColor:UIColor = UIColor.whiteColor();
             switch (cardData?.color)! {
             case "青":
                 cardColor = UIColor.blueColor()
@@ -176,10 +186,13 @@ class CardListViewController: UIViewController, UICollectionViewDelegate, UIColl
                 cardColor = UIColor.greenColor()
                 break
             case "黄":
-                cardColor = UIColor.yellowColor()
+                cardColor = UIColor.orangeColor()
                 break
             case "黒":
                 cardColor = UIColor.blackColor()
+                break
+            case "赤":
+                cardColor = UIColor.redColor()
                 break
             default:
                 break
@@ -200,7 +213,7 @@ class CardListViewController: UIViewController, UICollectionViewDelegate, UIColl
             cell.rarityLabel.text = NSString(format: "レアリティ:%@", (cardData?.rarity)!) as String
             cell.illustratorLabel.text = NSString(format: "イラストレーター:%@", (cardData?.illustrator)!) as String
             cell.recordingLabel.text = NSString(format: "収録:%@", (cardData?.recording)!) as String
-            cell.cardImageView.sd_setImageWithURL(NSURL(string: NSString(format: "https://www.gundam-cw.com/img/card/%@%03ld.png", self.typeName, indexPath.row + 1) as String))
+            cell.cardImageView.sd_setImageWithURL(NSURL(string: NSString(format: imgUrlBase, self.typeName, indexPath.row + 1) as String))
         }
         
         cell.abilyty1Label.adjustsFontSizeToFitWidth = true
@@ -214,6 +227,10 @@ class CardListViewController: UIViewController, UICollectionViewDelegate, UIColl
     // MARK: -SlideNavigationControllerDelegate
     func slideNavigationControllerShouldDisplayRightMenu() -> Bool {
         return true
+    }
+    
+    @IBAction func bsChangeBtn(sender: AnyObject) {
+        NSLog("aaa")
     }
 
 }
