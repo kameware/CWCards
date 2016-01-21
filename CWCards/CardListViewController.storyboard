@@ -373,7 +373,6 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Title" id="OzE-Iy-AQW">
-                        <barButtonItem key="leftBarButtonItem" title="三" id="1SE-M8-QYh"/>
                         <rightBarButtonItems>
                             <barButtonItem title="三" id="IIc-uf-EtN"/>
                             <barButtonItem title="B" id="Pjr-aZ-c9y">
@@ -390,7 +389,6 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="cardTableView" destination="KWh-ZA-sSB" id="C44-gy-hS7"/>
-                        <outlet property="leftMenuButton" destination="1SE-M8-QYh" id="ICG-pJ-VM7"/>
                         <outlet property="rightMenuButton" destination="IIc-uf-EtN" id="5mI-O0-OcF"/>
                     </connections>
                 </viewController>

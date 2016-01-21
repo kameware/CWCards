@@ -15,10 +15,11 @@ class CardListViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     @IBOutlet weak var cardTableView: UICollectionView!
     
-    @IBOutlet weak var leftMenuButton: UIBarButtonItem!
+//    @IBOutlet weak var leftMenuButton: UIBarButtonItem!
     @IBOutlet weak var rightMenuButton: UIBarButtonItem!
     
     var typeName:String = ""
+    var selectFlg:Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,12 +41,17 @@ class CardListViewController: UIViewController, UICollectionViewDelegate, UIColl
         self.navigationController?.navigationBarHidden = false
         
         if self.revealViewController() != nil {
-            leftMenuButton.target = self.revealViewController()
-            leftMenuButton.action = "revealToggle:"
-            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            let rightButtons = NSMutableArray(array: self.navigationItem.rightBarButtonItems!)
+            
+            let leftMenuButton:UIBarButtonItem = UIBarButtonItem(title: "三", style: UIBarButtonItemStyle.Done, target: self.revealViewController(), action: "revealToggle:")
+            if !selectFlg {
+                self.navigationItem.leftBarButtonItem = leftMenuButton
+            }
             rightMenuButton.target = self.revealViewController()
             rightMenuButton.action = "rightRevealToggle:"
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            rightButtons.addObject(leftMenuButton)
+            self.navigationItem.rightBarButtonItems = rightButtons as? [UIBarButtonItem]
         }
         
         self.navigationItem.title = typeName

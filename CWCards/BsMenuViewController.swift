@@ -48,16 +48,9 @@ class BsMenuViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        let storyboard:UIStoryboard = UIStoryboard.init(name: "CardListViewController", bundle: NSBundle.mainBundle())
-        let cardListViewcontroller:CardListViewController = storyboard.instantiateInitialViewController()! as! CardListViewController
-        
         let ud = NSUserDefaults.standardUserDefaults()
         ud.setObject(types[indexPath.row], forKey: DeviceConst().UD_TYPENAME)
         
-//        let navigationController = UINavigationControlΩler(rootViewController: cardListViewcontroller)
-        
         self.dismissViewControllerAnimated(true, completion: nil)
-//        let revealController = self.revealViewController()
-//        revealController.pushFrontViewController(navigationController, animated: true)
     }
 }

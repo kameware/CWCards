@@ -162,7 +162,7 @@ class RightMenuViewController: UIViewController, UITableViewDataSource, UITableV
         let revealController = self.revealViewController()
         let navigation = revealController.frontViewController as! UINavigationController
         let viewControllers = navigation.viewControllers;
-        let cardListViewController = viewControllers[0] as! CardListViewController
+        let cardListViewController = viewControllers.last as! CardListViewController
         cardListViewController.cardTableView.scrollToItemAtIndexPath(indexPath, atScrollPosition: UICollectionViewScrollPosition.Right, animated: true)
         revealController.rightRevealToggleAnimated(true)
     }
