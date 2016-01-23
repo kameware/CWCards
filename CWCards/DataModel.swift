@@ -35,3 +35,12 @@ class Card: Object {
         return "card_number"
     }
 }
+
+class Deck: Object {
+    dynamic var deck_name = ""
+    let cards = List<Card>()
+    
+    override static func primaryKey() -> String? {
+        return "deck_name"
+    }
+}

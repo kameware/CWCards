@@ -21,6 +21,7 @@
 		89BC25641C4FE22A000F28C1 /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BC25631C4FE22A000F28C1 /* LeftMenuViewController.swift */; };
 		89BC25661C4FEB53000F28C1 /* DeckListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BC25651C4FEB53000F28C1 /* DeckListViewController.swift */; };
 		89BC25681C4FF1EE000F28C1 /* DeckEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BC25671C4FF1EE000F28C1 /* DeckEditViewController.swift */; };
+		89D08B131C510C1E000F538C /* DeckEditTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D08B121C510C1E000F538C /* DeckEditTableViewCell.swift */; };
 		89EBBB891C2EC49D008B414B /* BsMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EBBB881C2EC49D008B414B /* BsMenuViewController.swift */; };
 		89FCD8AF1BF396EA009DFDCE /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FCD8AE1BF396EA009DFDCE /* CardCollectionViewCell.swift */; };
 		B3B2168FD9793A2BAF17D24E /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C4D30CB7AA861FA18824615 /* Pods.framework */; };
@@ -45,6 +46,7 @@
 		89BC25631C4FE22A000F28C1 /* LeftMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
 		89BC25651C4FEB53000F28C1 /* DeckListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeckListViewController.swift; sourceTree = "<group>"; };
 		89BC25671C4FF1EE000F28C1 /* DeckEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeckEditViewController.swift; sourceTree = "<group>"; };
+		89D08B121C510C1E000F538C /* DeckEditTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeckEditTableViewCell.swift; sourceTree = "<group>"; };
 		89EBBB881C2EC49D008B414B /* BsMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BsMenuViewController.swift; sourceTree = "<group>"; };
 		89FCD8AE1BF396EA009DFDCE /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
 		9BD0CEC31B28D08447AC9299 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -85,16 +87,10 @@
 			isa = PBXGroup;
 			children = (
 				890D2CFF1BE915D60060B916 /* AppDelegate.swift */,
-				890D2D011BE915D60060B916 /* aViewController.swift */,
-				89BC25651C4FEB53000F28C1 /* DeckListViewController.swift */,
-				89BC25671C4FF1EE000F28C1 /* DeckEditViewController.swift */,
-				89EBBB881C2EC49D008B414B /* BsMenuViewController.swift */,
-				892016821C28488F005DC1CF /* RightMenuViewController.swift */,
-				890D2D131BE91B250060B916 /* CardListViewController.swift */,
-				89BC25631C4FE22A000F28C1 /* LeftMenuViewController.swift */,
-				895C5F781C31924D008CE41D /* CustomCollectionViewFlowLayout.swift */,
-				89FCD8AE1BF396EA009DFDCE /* CardCollectionViewCell.swift */,
-				89B397661BF8EACF0087B7B9 /* DataModel.swift */,
+				89D08B101C510770000F538C /* layout */,
+				89D08B0F1C510761000F538C /* controller */,
+				89D08B0E1C510759000F538C /* cells */,
+				89D08B111C51078E000F538C /* realm */,
 				890D2D031BE915D60060B916 /* Main.storyboard */,
 				890D2D151BE91B3E0060B916 /* CardListViewController.storyboard */,
 				890D2D061BE915D60060B916 /* Assets.xcassets */,
@@ -104,6 +100,45 @@
 				8960DCF41C317A6B000FBDA9 /* DeviceConst.swift */,
 			);
 			path = CWCards;
+			sourceTree = "<group>";
+		};
+		89D08B0E1C510759000F538C /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				89FCD8AE1BF396EA009DFDCE /* CardCollectionViewCell.swift */,
+				89D08B121C510C1E000F538C /* DeckEditTableViewCell.swift */,
+			);
+			name = cells;
+			sourceTree = "<group>";
+		};
+		89D08B0F1C510761000F538C /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				890D2D011BE915D60060B916 /* aViewController.swift */,
+				89BC25651C4FEB53000F28C1 /* DeckListViewController.swift */,
+				89BC25671C4FF1EE000F28C1 /* DeckEditViewController.swift */,
+				89EBBB881C2EC49D008B414B /* BsMenuViewController.swift */,
+				892016821C28488F005DC1CF /* RightMenuViewController.swift */,
+				890D2D131BE91B250060B916 /* CardListViewController.swift */,
+				89BC25631C4FE22A000F28C1 /* LeftMenuViewController.swift */,
+			);
+			name = controller;
+			sourceTree = "<group>";
+		};
+		89D08B101C510770000F538C /* layout */ = {
+			isa = PBXGroup;
+			children = (
+				895C5F781C31924D008CE41D /* CustomCollectionViewFlowLayout.swift */,
+			);
+			name = layout;
+			sourceTree = "<group>";
+		};
+		89D08B111C51078E000F538C /* realm */ = {
+			isa = PBXGroup;
+			children = (
+				89B397661BF8EACF0087B7B9 /* DataModel.swift */,
+			);
+			name = realm;
 			sourceTree = "<group>";
 		};
 		AD98DEEDEE4AB4BD401E071F /* Frameworks */ = {
@@ -258,6 +293,7 @@
 				890D2D001BE915D60060B916 /* AppDelegate.swift in Sources */,
 				89BC25661C4FEB53000F28C1 /* DeckListViewController.swift in Sources */,
 				89BC25681C4FF1EE000F28C1 /* DeckEditViewController.swift in Sources */,
+				89D08B131C510C1E000F538C /* DeckEditTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

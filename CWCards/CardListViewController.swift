@@ -20,6 +20,8 @@ class CardListViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     var typeName:String = ""
     var selectFlg:Bool = false
+    var deckEditDelegate:DeckEditDelegate!
+    var cardData:Card!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,17 +43,20 @@ class CardListViewController: UIViewController, UICollectionViewDelegate, UIColl
         self.navigationController?.navigationBarHidden = false
         
         if self.revealViewController() != nil {
-            let rightButtons = NSMutableArray(array: self.navigationItem.rightBarButtonItems!)
-            
-            let leftMenuButton:UIBarButtonItem = UIBarButtonItem(title: "三", style: UIBarButtonItemStyle.Done, target: self.revealViewController(), action: "revealToggle:")
+            // 左メニュー呼び出しボタン
             if !selectFlg {
+                let leftMenuButton:UIBarButtonItem = UIBarButtonItem(title: "三", style: UIBarButtonItemStyle.Done, target: self.revealViewController(), action: "revealToggle:")
                 self.navigationItem.leftBarButtonItem = leftMenuButton
+            } else {
+                // 決定ボタン追加処理
+                let selectButton:UIBarButtonItem = UIBarButtonItem(title: "決", style: UIBarButtonItemStyle.Done, target: self, action: "selectCard")
+                let rightButtons = NSMutableArray(array: self.navigationItem.rightBarButtonItems!)
+                rightButtons.addObject(selectButton)
+                self.navigationItem.rightBarButtonItems = rightButtons as AnyObject as? [UIBarButtonItem]
             }
             rightMenuButton.target = self.revealViewController()
             rightMenuButton.action = "rightRevealToggle:"
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-            rightButtons.addObject(leftMenuButton)
-            self.navigationItem.rightBarButtonItems = rightButtons as? [UIBarButtonItem]
         }
         
         self.navigationItem.title = typeName
@@ -100,7 +105,7 @@ class CardListViewController: UIViewController, UICollectionViewDelegate, UIColl
         let realm = try! Realm()
         let no = NSString(format: "%@%03ld", typeName, indexPath.row + 1)
         let predicate = NSPredicate(format: "card_number = %@", no)
-        let cardData = realm.objects(Card).filter(predicate).first
+        cardData = realm.objects(Card).filter(predicate).first
         
         let prFlg = typeName.hasPrefix("PR")
         var imgUrlBase = "https://www.gundam-cw.com/img/card/%@%03ld.png"
@@ -138,9 +143,9 @@ class CardListViewController: UIViewController, UICollectionViewDelegate, UIColl
                                 try! realm.write{
                                     realm.create(Card.self, value: cardInfo, update: true)
                                 }
-                                let cardData = realm.objects(Card).filter(predicate).first
+                                self.cardData = realm.objects(Card).filter(predicate).first
                                 var cardColor:UIColor = UIColor.whiteColor();
-                                switch (cardData?.color)! {
+                                switch (self.cardData?.color)! {
                                 case "青":
                                     cardColor = UIColor.blueColor()
                                     break
@@ -159,22 +164,22 @@ class CardListViewController: UIViewController, UICollectionViewDelegate, UIColl
                                 default:
                                     break
                                 }
-                                cell.cardNoLabel.text = NSString(format: "No.:%@", (cardData?.card_number)!) as String
-                                cell.cardNameLabel.text = NSString(format: "カード名:%@", (cardData?.card_name)!) as String
-                                let attrText = NSMutableAttributedString(string: NSString(format: "コスト: %@:%@ 無色:%@", (cardData?.color_restraint_1)!, (cardData?.color_restraint_2)!, (cardData?.cost)!) as String)
+                                cell.cardNoLabel.text = NSString(format: "No.:%@", (self.cardData?.card_number)!) as String
+                                cell.cardNameLabel.text = NSString(format: "カード名:%@", (self.cardData?.card_name)!) as String
+                                let attrText = NSMutableAttributedString(string: NSString(format: "コスト: %@:%@ 無色:%@", (self.cardData?.color_restraint_1)!, (self.cardData?.color_restraint_2)!, (self.cardData?.cost)!) as String)
 //                                attrText.addAttribute(NSForegroundColorAttributeName, value: cardColor, range: NSMakeRange(4, 4))
 //                                attrText.addAttribute(NSForegroundColorAttributeName, value: UIColor.lightGrayColor(), range: NSMakeRange(9, 4))
                                 cell.costLabel.attributedText = attrText
-                                cell.abilyty1Label.text = NSString(format: "能力１:%@", (cardData?.ability_1)!) as String
-                                cell.ability2Label.text = NSString(format: "能力２:%@", (cardData?.ability_2)!) as String
-                                cell.atkLabel.text = NSString(format: "ATK:%@", (cardData?.atk)!) as String
-                                cell.defLabel.text = NSString(format: "DEF:%@", (cardData?.def)!) as String
-                                cell.elementLabel.text = NSString(format: "特徴:%@", (cardData?.element)!) as String
-                                cell.sizeLabel.text = NSString(format: "サイズ:%@", (cardData?.size)!) as String
-                                cell.colorLabel.text = NSString(format: "色:%@", (cardData?.color)!) as String
-                                cell.rarityLabel.text = NSString(format: "レアリティ:%@", (cardData?.rarity)!) as String
-                                cell.illustratorLabel.text = NSString(format: "イラストレーター:%@", (cardData?.illustrator)!) as String
-                                cell.recordingLabel.text = NSString(format: "収録:%@", (cardData?.recording)!) as String
+                                cell.abilyty1Label.text = NSString(format: "能力１:%@", (self.cardData?.ability_1)!) as String
+                                cell.ability2Label.text = NSString(format: "能力２:%@", (self.cardData?.ability_2)!) as String
+                                cell.atkLabel.text = NSString(format: "ATK:%@", (self.cardData?.atk)!) as String
+                                cell.defLabel.text = NSString(format: "DEF:%@", (self.cardData?.def)!) as String
+                                cell.elementLabel.text = NSString(format: "特徴:%@", (self.cardData?.element)!) as String
+                                cell.sizeLabel.text = NSString(format: "サイズ:%@", (self.cardData?.size)!) as String
+                                cell.colorLabel.text = NSString(format: "色:%@", (self.cardData?.color)!) as String
+                                cell.rarityLabel.text = NSString(format: "レアリティ:%@", (self.cardData?.rarity)!) as String
+                                cell.illustratorLabel.text = NSString(format: "イラストレーター:%@", (self.cardData?.illustrator)!) as String
+                                cell.recordingLabel.text = NSString(format: "収録:%@", (self.cardData?.recording)!) as String
                                 cell.cardImageView.sd_setImageWithURL(NSURL(string: NSString(format: imgUrlBase, self.typeName, indexPath.row + 1) as String))
                             }
                         }
@@ -235,8 +240,15 @@ class CardListViewController: UIViewController, UICollectionViewDelegate, UIColl
         return true
     }
     
+    // MARK: -self method-
+    func selectCard() {
+        deckEditDelegate.selectCard(cardData)
+        self.navigationController?.popViewControllerAnimated(true)
+    }
     @IBAction func bsChangeBtn(sender: AnyObject) {
         NSLog("aaa")
     }
+    
+    
 
 }

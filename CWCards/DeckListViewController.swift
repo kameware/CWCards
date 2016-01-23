@@ -7,10 +7,22 @@
 //
 
 import UIKit
+import RealmSwift
 
-class DeckListViewController: UIViewController {
+class DeckListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var leftMenuButton: UIBarButtonItem!
+    @IBOutlet weak var deckTableView: UITableView!
+    
+    var decks:Results<Deck>?{
+        do {
+            let realm = try! Realm()
+            return realm.objects(Deck)
+        } catch {
+            NSLog("error")
+        }
+        return nil
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +36,8 @@ class DeckListViewController: UIViewController {
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
-        
+        deckTableView.delegate = self
+        deckTableView.dataSource = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,15 +45,21 @@ class DeckListViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // MARK: -tableview-
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
     }
-    */
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return decks!.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier("deckcell")!
+        cell.textLabel?.text = decks![indexPath.row].deck_name
+        
+        return cell
+        
+    }
 
 }
